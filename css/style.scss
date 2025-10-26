@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+$bg: #111;
+$text: #fff;
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+main {
+    height: 100%;
+    width: 100%;
+
+}
+::selection{
+    background-color: transparent;
+}
+.scetion1 {
+    height: 100vh;
+    width: 100%;
+    background-color: $bg;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-areas:
+        "d1 d1 d2 d2"
+        "d1 d1 d2 d2"
+        "v1 v1 d2 d2"
+        "v1 v1 d2 d2"
+    ;
+    overflow: hidden;
+
+    .data {
+        grid-area: d1;
+        display: flex;
+        flex-flow: column;
+        align-items: start;
+        gap: 1rem;
+        background-color: $bg;
+        color: $text;
+        padding: 6rem;
+        font-family: "Ubuntu", sans-serif;
+
+        p {
+            opacity: 70%;
+        }
+
+        button {
+            font-size: 1.2rem;
+            padding: 0.5rem 1.5rem;
+            border-radius: 0.6rem;
+            outline: none;
+            border: none;
+            transition: all .5s cubic-bezier(0.23, 1, 0.320, 1);
+            background-color: $text;
+            cursor: pointer;
+            color: $bg;
+            transform: scale(1);
+
+            &:hover {
+                background-color: #474747;
+                color: $text;
+            }
+
+            &:active {
+                transform: scale(.9);
+            }
+        }
+    }
+
+    .console {
+        grid-area: d2;
+        width: 100%;
+        background-color: #131313;
+        font-family: "Source Code Pro", monospace;
+
+        .top{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            h2 {
+            font-size: 1rem;
+            padding: 1.5rem 2rem;
+            color: #fff;
+            text-transform: uppercase;
+            opacity: 80%;
+            font-weight: 400;
+        }
+        h3 {
+            font-size: 1rem;
+            padding: 1.5rem 2rem;
+            color: #fff;
+            text-transform: uppercase;
+            opacity: 80%;
+            font-weight: 400;
+        }
+        }
+
+        hr {
+            height: .01rem;
+            background-color: $text;
+            border: none;
+            opacity: 50%;
+            margin-bottom:1rem ;
+        }
+
+        #code-container{
+            font-family: "Google Sans Code", monospace;
+            margin-top: 1rem;
+            padding: 0 2rem;
+
+           
+        }
+    }
+
+    .video {
+        padding: 0 5rem;
+        grid-area: v1;
+
+        video {
+            width: 100%;
+            border-radius: 1rem;
+        }
+    }
+}
+
+.code-bg {
+    background-color: #fff;
+    color: #111;
+}
+
+.code-titel {
+    padding: .5rem 1rem;
+    border-radius: .2rem;
+    margin-bottom: .5rem;
+    font-size: 1.1rem;
+}
+
+.code-sub-fail {
+       background-color: #560000;
+    color: #da0000;
+    margin: .2rem 0;
+    padding: .2rem 1rem;
+    border-radius: .2rem;
+}
+
+.code-sub-draw {
+       background-color: #3b3b3b;
+    color: #b8b8b8;
+    margin: .2rem 0;
+    padding: .2rem 1rem;
+    border-radius: .2rem;
+}
+.code-sub {
+    margin: .2rem 0;
+    padding: .2rem 1rem;
+    border-radius: .2rem;
+    color: #fff;
+    background-color: #ffffff08;
+}
+.code-sub-success {
+       background-color: #073400;
+    color: #26e200;
+    margin: .2rem 0;
+    padding: .2rem 1rem;
+    border-radius: .2rem;
+}
