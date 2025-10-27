@@ -255,6 +255,8 @@ main #loader .loader:after {
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(3, 1fr);
     grid-template-areas: "d1 d1 d1 d1" "d2 d2 d2 d2";
+    padding-bottom: 2rem;
+    overflow: scroll;
   }
   .scetion1 .data {
     padding: 3rem 2rem;
