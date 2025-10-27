@@ -1,5 +1,8 @@
 let codeContainer = document.getElementById("code-container");
 
+function loader() {
+    document.getElementById("loader").style.display = "none";
+}
 
 
 function rsp(user, ai) {
@@ -11,6 +14,7 @@ function rsp(user, ai) {
 
     let response = codeContainer.appendChild(textCreate("code-bg code-sub", "Ai Won! Better luck next time Lol(:"))
 
+
     return response;
 }
 
@@ -21,8 +25,11 @@ function grit(mass) {
     codeContainer.appendChild(textCreate("code-bg-grit code-titel", `${mass}`));
 }
 function inpuTaken() {
+    let text = prompt("Choose rock, papar or sisor");
+    let result = text.toLowerCase();
+    console.log(result);
 
-    return ans = prompt("Choose rock, papar or sisor")
+    return result;
 }
 
 function ai() {
@@ -54,8 +61,6 @@ function textCreate(class_name, text) {
     return newPara;
 }
 function game() {
-    let win = 0;
-    let totalWin = document.getElementById("count");
     let one_time_paly = 1;
 
 
@@ -63,10 +68,10 @@ function game() {
         user_ans = inpuTaken();
         ai_respoce = ai();
 
-        codeContainer.appendChild(textCreate("code-bg code-sub", `You:${user_ans}, Ai:${ai_respoce}`));
+        codeContainer.appendChild(textCreate("code-bg code-sub", `You: [${user_ans}], Ai: [${ai_respoce}]`));
 
         let finalAns = rsp(user_ans, ai_respoce);
-        console.log(finalAns);
+        // console.log(finalAns);
 
         if (finalAns.innerText == "Draw") {
             codeContainer.appendChild(textCreate("code-bg code-sub-draw", finalAns));
@@ -83,7 +88,6 @@ function game() {
         }
         --one_time_paly
     }
-    totalWin.appendChild(win);
 }
 
 function objectErrorFix() {
@@ -96,13 +100,32 @@ function objectErrorFix() {
         }
     });
 }
+
+function count() {
+    let totalTEXT = document.getElementById("count").innerHTML
+    let box = document.getElementById("code-container");
+    let kids = box.querySelectorAll("*");
+
+    let i = 0;
+    kids.forEach(el => {
+        if (el.textContent.includes("You Won!")) {
+            totalTEXT.appendChild(`${i}`)
+        }
+        ++i;
+    });
+
+    return i;
+}
 function main() {
 
 
     let btn = document.getElementById("btn");
 
     setInterval(() => {
-        objectErrorFix()
+        loader()
+    }, 1500);
+    setInterval(() => {
+        objectErrorFix();
     })
 
 
@@ -113,8 +136,7 @@ function main() {
         game();
     })
 
-
-
+    console.log()
 
 
 
