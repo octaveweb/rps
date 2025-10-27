@@ -25,7 +25,7 @@ function grit(mass) {
     codeContainer.appendChild(textCreate("code-bg-grit code-titel", `${mass}`));
 }
 function inpuTaken() {
-    let text = prompt("Choose rock, papar or sisor");
+    let text = prompt("Choose Rock, Papar or Sisor");
     let result = text.toLowerCase();
     console.log(result);
 
