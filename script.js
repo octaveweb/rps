@@ -18,7 +18,7 @@ function rsp(user, ai) {
 
 
 function grit(mass) {
-    document.writeln(mass)
+    codeContainer.appendChild(textCreate("code-bg-grit code-titel", `${mass}`));
 }
 function inpuTaken() {
 
@@ -58,55 +58,57 @@ function game() {
     let totalWin = document.getElementById("count");
     let one_time_paly = 1;
 
-    while (one_time_paly) {
-        if (true) {
-            user_ans = inpuTaken();
-            ai_respoce = ai();
 
-            codeContainer.appendChild(textCreate("code-bg code-sub", `You:${user_ans}, Ai:${ai_respoce}`));
+    if (true) {
+        user_ans = inpuTaken();
+        ai_respoce = ai();
 
-            let finalAns = rsp(user_ans, ai_respoce);
-            console.log(finalAns);
+        codeContainer.appendChild(textCreate("code-bg code-sub", `You:${user_ans}, Ai:${ai_respoce}`));
 
-            if (finalAns.innerText == "Draw") {
-                codeContainer.appendChild(textCreate("code-bg code-sub-draw", finalAns));
-            }
-            else if (finalAns.innerText == "Ai Won! Better luck next time Lol(:") {
-                codeContainer.appendChild(textCreate("code-bg code-sub-fail", finalAns));
-            }
-            else if (finalAns.innerText == "You Won!") {
-                codeContainer.appendChild(textCreate("code-bg code-sub-success", finalAns));
-                ++win;
-            }
-            else {
-                codeContainer.appendChild(textCreate("code-bg code-sub-success", finalAns));
-            }
-            --one_time_paly
+        let finalAns = rsp(user_ans, ai_respoce);
+        console.log(finalAns);
+
+        if (finalAns.innerText == "Draw") {
+            codeContainer.appendChild(textCreate("code-bg code-sub-draw", finalAns));
         }
-        totalWin.appendChild(win);
+        else if (finalAns.innerText == "Ai Won! Better luck next time Lol(:") {
+            codeContainer.appendChild(textCreate("code-bg code-sub-fail", finalAns));
+        }
+        else if (finalAns.innerText == "You Won!") {
+            codeContainer.appendChild(textCreate("code-bg code-sub-success", finalAns));
+            ++win;
+        }
+        else {
+            codeContainer.appendChild(textCreate("code-bg code-sub-success", finalAns));
+        }
+        --one_time_paly
     }
+    totalWin.appendChild(win);
 }
-function objectErrorFix(){
-        let box = document.getElementById("code-container");
-        let kids = box.querySelectorAll("*");
 
-        kids.forEach(el => {
-            if (el.textContent.includes("[object HTMLParagraphElement]")) {
-                el.textContent = "Try again";
-            }
-        });
+function objectErrorFix() {
+    let box = document.getElementById("code-container");
+    let kids = box.querySelectorAll("*");
+
+    kids.forEach(el => {
+        if (el.textContent.includes("[object HTMLParagraphElement]")) {
+            el.textContent = "Try again";
+        }
+    });
 }
 function main() {
 
 
     let btn = document.getElementById("btn");
 
-setInterval(()=>{
-    objectErrorFix()
-})
-    
+    setInterval(() => {
+        objectErrorFix()
+    })
 
 
+
+
+    grit("Welcome to the game!");
     btn.addEventListener("click", () => {
         game();
     })
